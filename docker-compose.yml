@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  web:
+    build: .
+    env_file:
+      - .env
+    command: python manage.py runserver 0.0.0.0:8000 --noreload
+    volumes:
+      - .:/webapps
+    ports:
+      - "${PORT}:8000"
